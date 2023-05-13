@@ -11,7 +11,7 @@
     "build:ssr": "nx run YourPerfectCoffee:server:dev",
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
-    "deploy": "nx build --prod --base-href=/Coffee-nator-3000/",
+    "deploy": "nx build --prod --base-href=/Coffee-nator-3000/ --deploy-url /Coffee-nator-3000/",
     "build:prod": "nx build --deploy-url /Coffee-nator-3000/"
   },
   "private": true,
