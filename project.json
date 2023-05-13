@@ -1,0 +1,132 @@
+{
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "name": "YourPerfectCoffee",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:application": {
+      "strict": true
+    }
+  },
+  "sourceRoot": "src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "progress": false,
+        "outputPath": "dist",
+        "index": "src/index.html",
+        "main": "src/main.ts",
+        "polyfills": "src/polyfills.ts",
+        "tsConfig": "tsconfig.app.json",
+        "assets": [
+          "src/assets"
+        ],
+        "styles": [
+          "node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "src/styles.css"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "src/environments/environment.ts",
+              "with": "src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "YourPerfectCoffee:build:production"
+        },
+        "development": {
+          "browserTarget": "YourPerfectCoffee:build:development",
+          "proxyConfig": "proxy.conf.js"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "YourPerfectCoffee:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "src/test.ts",
+        "polyfills": "src/polyfills.ts",
+        "tsConfig": "tsconfig.spec.json",
+        "karmaConfig": "karma.conf.js",
+        "assets": [
+          "src/assets"
+        ],
+        "styles": [
+          "src/styles.css"
+        ],
+        "scripts": []
+      }
+    },
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist-server",
+        "main": "src/main.ts",
+        "tsConfig": "tsconfig.server.json"
+      },
+      "configurations": {
+        "dev": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      },
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    }
+  }
+}

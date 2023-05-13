@@ -1,0 +1,53 @@
+<div class="inline-flex">
+    <div>
+      <h3 style="white-space: nowrap; padding-right: 1rem" mat-dialog-title>
+        Result
+      </h3>
+    </div>
+    <div class="right-div">
+      <button
+        [autofocus]="false"
+        mat-button
+        mat-dialog-close
+        style="background-color: indianred; color: white">
+        Close
+      </button>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  
+<mat-dialog-content>
+    <div class="container" style="padding-top: 0; min-width: 400px; min-height: 400px; display: flex;">
+        <div *ngIf="!(data | async)" style=" margin-left: auto; margin-right: auto; text-align: center; align-self: center;">
+            <mat-spinner style="margin-left: auto; margin-right: auto"></mat-spinner>
+            <br>
+            <h3 style="margin-left: auto; margin-right: auto">Constructing the best cup for you</h3>
+            <h3 style="margin-left: auto; margin-right: auto">One Moment</h3>
+        </div>
+        <div *ngIf="data|async as result" style= "margin-left: auto;margin-right: auto;align-self: center;">
+            <div >
+                    <h4 > {{result.coffee.name}}</h4>
+
+
+                    <h4>{{result.coffee.roastLevel}}</h4>
+
+                    <h4>{{result.coffee.farmName}}</h4>
+
+
+                    <h4>{{result.coffee.type}}</h4>
+
+                    <h4>{{result.coffee.price | currency:'HUF  ':'symbol'}}</h4>
+
+                
+                <h4>Flavour Profile:</h4>
+                <ul>
+                  <li *ngFor="let flavour of result.coffee.flavourProfile">{{flavour}}</li>
+                </ul>
+
+                    <h4>{{result.brew.name}}</h4>
+                    
+              </div>
+        </div>
+
+    </div>
+</mat-dialog-content>

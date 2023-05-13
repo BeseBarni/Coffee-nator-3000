@@ -1,0 +1,30 @@
+
+.inline-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.right-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width: 100%;
+  }
+
+
+  .horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .left {
+    flex: 1;
+    padding-right: 2rem;
+  }
+  
+  .right {
+    flex: 1;
+  }

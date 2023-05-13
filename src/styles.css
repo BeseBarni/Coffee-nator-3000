@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+a {
+  color: #0366d6;
+}
+
+html, body{
+  height: 100%;
+  font-family: 'Robot', sans-serif;
+  background-color: white;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.background-div{
+  /* background-image: url('../src//assets/background2.webp'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
+  text-align: center;
+  vertical-align:middle;
+  height: 100%;
+}
+
+.container{
+  padding-top: 8rem ;
+  margin-top: 0;
+  margin-left: 5rem + auto;
+  margin-right: 5rem + auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.navbar{
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.material-icons{
+  font-family: 'Material Icons' !important;
+}

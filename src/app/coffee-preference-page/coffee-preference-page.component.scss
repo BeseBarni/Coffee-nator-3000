@@ -1,0 +1,42 @@
+.coffee-form{
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+    min-width: 0;
+    
+}
+
+.field{
+    margin-left: auto;
+}
+
+.form{
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 2px 2px #111111;
+}
+
+.mat-card{
+    border-radius: .7rem;
+    box-shadow: 1px 1px 2px 2px #111111;
+
+}
+
+.pop-image {
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .pop-image:hover {
+    cursor: pointer;
+  }
+  
+  .pop-image:active {
+    transform: scale(1.2);
+    transition: transform 0.07s ease-in-out;
+  }
+  .pop-image:disabled{
+    filter: grayscale(100%);
+  }
+

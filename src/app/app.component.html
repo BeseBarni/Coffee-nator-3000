@@ -1,0 +1,6 @@
+
+  <app-nav-menu></app-nav-menu>
+      <div  [@routeAnimations]="outlet.isActivated ? outlet.activatedRoute : ''">
+        <router-outlet #outlet="outlet"></router-outlet>
+  
+      </div>
