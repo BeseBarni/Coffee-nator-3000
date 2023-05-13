@@ -9,23 +9,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
-    - uses: actions/setup-node@v1 #this installs node and npm for us
+      uses: actions/checkout@v3
+    - uses: actions/setup-node@v3.3.0 #this installs node and npm for us
       with:
         node-version: '16'
-    - uses: actions/cache@v1 # this allows for re-using node_modules caching, making builds a bit faster.
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-    
+        cache: 'npm'   
     - name: Build
       run: |
-        npm install --force
+        npm ci
         npm run-script deploy
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+      uses: crazy-max/ghaction-github-pages@v3
       with:
+        target_branch: gh-pages
+        build_dir: dist
+      env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: dist
