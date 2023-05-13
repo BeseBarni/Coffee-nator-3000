@@ -10,7 +10,8 @@
     "build": "nx exec -- nx build",
     "build:ssr": "nx run YourPerfectCoffee:server:dev",
     "watch": "nx build --watch --configuration development",
-    "test": "nx test"
+    "test": "nx test",
+    "deploy": "ng build --prod --base-href=/Coffee-nator-3000/"
   },
   "private": true,
   "dependencies": {
